@@ -1,0 +1,43 @@
+.juego {
+  width: 100%;
+  height: 100%;
+  padding-top: 80px;
+  padding-bottom: 80px;
+  display: flex;
+  justify-content: space-around;
+}
+
+#myCanvas {
+  border : solid red;
+  }
+
+.listado{
+  height: 900px;
+  width: 500px;
+  border: solid green;
+}
+
+.score {
+  height: 200px;
+  width: 500px;
+  border: solid pink;
+}
+
+.vidas {
+  height: 200px;
+  width: 500px;
+  border: solid blue;
+}
+
+.nombre-plato {
+  height: 90px;
+  width: 500px;
+  border: solid black;
+}
+
+.ingredientes {
+  height: 300px;
+  width: 500px;
+  border: solid yellow;
+
+}
