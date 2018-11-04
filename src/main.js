@@ -2,7 +2,7 @@
 window.onload = function() {
   
   {
-    funcion ();
+    
   };
 
 
@@ -13,6 +13,16 @@ function Juego(){
   this.width = this.canvas.width;
   this.x = 150;
   this.y = 600;
+}
+
+
+Juego.prototype.start = function() {
+  //debugger
+  setInterval(function() {
+    
+    this.drawRoad();
+    
+  }.bind(this), 1000/60);
 }
 
 Juego.prototype.drawRoad = function() {
