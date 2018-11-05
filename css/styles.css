@@ -8,7 +8,7 @@
 }
 
 #myCanvas {
-  border : solid red;
+  border : solid black;
   }
 
 .listado{
@@ -32,7 +32,7 @@
 .nombre-plato {
   height: 90px;
   width: 500px;
-  border: solid black;
+  border: solid red;
 }
 
 .ingredientes {

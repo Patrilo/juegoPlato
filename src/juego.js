@@ -3,7 +3,13 @@
 function Juego(myCanvas){
   this.canvas = document.getElementById(myCanvas);
   this.ctx = this.canvas.getContext("2d");
-  
+  this.width = 1000;
+  //this.x= 110;
+  //this.y= -10;
+  //this.height= 200;
+  //this.ingredientes = [];
+
+
   this.reset()
 
   }
@@ -15,7 +21,10 @@ Juego.prototype.start = function() {
     
     
     this.draw();
-    this.plato.move();
+    this.plato.movePlato();
+    this.ctx.drawImage(this.x, this.y, this.width, this.height)
+    this.ctx.drawImage(this.getimage, 110, -10,200,100)
+
     
   }.bind(this), 1000/60);
 }
@@ -23,6 +32,8 @@ Juego.prototype.start = function() {
 Juego.prototype.reset = function () {
 this.background = new Background (this);
 this.plato = new Plato (this);
+this.getimage = new Image();
+this.getimage.src = getimage(ingredientes[3]);
 
 }
 
@@ -32,17 +43,7 @@ Juego.prototype.draw = function() {
     this.background.draw();
     this.plato.draw();
 
+
 }
 
 
-
-/*
-Game.prototype.reset = function() {
-  this.background = new Background(this);
-  this.player = new Player(this);
-  this.framesCounter = 0;
-  this.obstacles = [];
-  this.score = 0;
-};
-
-*/
