@@ -15,12 +15,14 @@ Juego.prototype.start = function() {
     
     
     this.draw();
+    this.plato.move();
     
   }.bind(this), 1000/60);
 }
 
 Juego.prototype.reset = function () {
 this.background = new Background (this);
+this.plato = new Plato (this);
 
 }
 
@@ -28,16 +30,11 @@ this.background = new Background (this);
 Juego.prototype.draw = function() {
 
     this.background.draw();
+    this.plato.draw();
 
 }
-/*
-Juego.prototype.drawRoad = function() {
 
-  this.ctx.fillStyle = "#357E1A";
-  this.ctx.fillRect(0,0,40,this.height);
-}
 
-*/
 
 /*
 Game.prototype.reset = function() {
