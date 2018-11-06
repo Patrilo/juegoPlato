@@ -1,11 +1,11 @@
 function Plato(juego) {
   this.juego = juego;
   this.img = new Image();
-  this.img.src = "./images/platoBlanco.png";
+  this.img.src = "./images/madera.png";
   this.x = 450;
   this.y = 0;
-  this.width = 320;
-  this.height = 60;
+  this.width = 220;
+  this.height = 70;
   
 
   this.setListeners();
