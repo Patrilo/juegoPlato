@@ -7,9 +7,9 @@ function Juego(myCanvas){
  
   
   this.ingrediente=[];
-  this.widthIngre = 200;
+  this.widthIngre = 180;
   this.heightIngre = 30;
-  this.xIngre = 100;
+  this.xIngre = [Math.floor(Math.random() * this.width)];
   this.yIngre = -10;
 
   this.reset()
@@ -49,3 +49,27 @@ Juego.prototype.draw = function() {
 
 
 }
+
+Juego.prototype.isCollision = function() {
+
+return this.ingredientes.some(function(ing) {
+
+}
+
+}
+
+/*
+
+Juego.prototype.isCollision = function() {
+  // colisiones genéricas 
+  // (p.x + p.w > o.x && o.x + o.w > p.x && p.y + p.h > o.y && o.y + o.h > p.y )
+  return this.obstacles.some(function(obstacle) {
+    return (
+      ((this.player.x + this.player.w) >= obstacle.x &&
+       this.player.x < (obstacle.x + obstacle.w) &&
+       this.player.y + (this.player.h - 20) >= obstacle.y)
+    );
+  }.bind(this));
+};
+
+*/

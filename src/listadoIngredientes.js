@@ -4,15 +4,18 @@ var ingredientes = [
   "cebolla",
   "ketchup",
   "lechuga",
-  "pan",
+  //"pan",
   "panPerrito",
   "patatas",
-  "pepperoni",
+  //"pepperoni",
   "pimientoRojo",
   "pimientoVerde",
   "pizza",
   "salchichas",
-  "tomate"
+  "tomate",
+  "panHamburguesa",
+  "panPerrito2",
+  "queso"
 ];
 
 function getimage(ingredient) {
