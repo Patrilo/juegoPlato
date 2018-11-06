@@ -4,8 +4,7 @@ function Ingredient (juego, ing) {
   this.ing = ing;
   this.img = new Image();
   this.img.src = getimage(this.ing);
-  
-  this.x = [Math.floor(Math.random() * this.juego.width)];
+  this.x = Math.floor(Math.random() * this.juego.width);
   this.y = 10;
   this.w= 180;
   this.h = 30;

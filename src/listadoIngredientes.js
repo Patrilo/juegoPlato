@@ -14,7 +14,7 @@ var ingredientes = [
   "salchichas",
   "tomate",
   "panHamburguesa",
-  "panPerrito2",
+  //"panPerrito2",
   "queso"
 ];
 
