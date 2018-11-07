@@ -22,15 +22,45 @@
 .score {
   height: 200px;
   width: 500px;
-  border: solid pink;
+  border: solid black;
+  font-family: 'Amatic SC', cursive;
+  font-size: 50px;
+  text-align: center;
+  background-color: #e0e0eb;
 }
 
 .vidas {
-  height: 200px;
+  height: 280px;
   width: 500px;
-  border: solid blue;
+  border: solid black;
+  display: flex;
+  flex-direction: column;
+  
+ 
+}
+.instrucciones {
+  font-size: 50px;
+  text-align: center;
+  font-family: 'Amatic SC', cursive;
+  
+}
+.textoImagen {
+  flex-direction: column;
+ justify-content: center;
+
+}
+.textoCursores {
+  font-family: 'EB Garamond', serif;
+  font-size: 25px;
+  padding: 20px 20px 20px 20px;
+  text-align: center;
+  font-family: 'Life Savers', cursive;
 }
 
+.teclas {
+  margin-left: 150px;
+  padding-top: 20px;
+}
 .nombre-plato {
   height: 200px;
   width: 500px;
@@ -40,14 +70,13 @@
 .titulo {
   font-size: 50px;
   text-align: center;
-  padding-top: 30px;
+  padding: 30px 20px 20px 20px;
   color: white;
   font-family: 'Amatic SC', cursive;
- 
 }
 
 .listadoIngredientes {
-  height: 300px;
+  height: 250px;
   width: 500px;
   border: solid black;
   }

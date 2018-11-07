@@ -8,6 +8,8 @@
   <link rel="stylesheet" type="text/css" href="css/reset.css">
   <link rel="stylesheet" type="text/css" href="css/styles.css">
   <link href="https://fonts.googleapis.com/css?family=Amatic+SC|Life+Savers" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Anton" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Anton|EB+Garamond" rel="stylesheet">
   <script type="text/javascript" src="src/juego.js"></script>
   <script type="text/javascript" src="src/main.js"></script>
   <script type="text/javascript" src="src/ingredientes.js"></script>
@@ -27,10 +29,15 @@
         <h1>Score</h1>
       </div>
       <div class="vidas">
-        <h1>Vidas</h1>
+        <h1 class = "instrucciones">Instrucciones</h1>
+        <div class = "textoImagen">
+        <img src="images/arrows.png" height="100px" width= "150px" class = "teclas">
+        <p class = "textoCursores">Utiliza los cursores para mover el plato y 
+          elegir los ingredientes para crear tu hamburguesa!</p>
+        </div>
       </div>
       <div class="nombre-plato">
-        <h1 class = "titulo">Elige los ingredientes y crea tu hamburguesa!</h1>
+        <h1 class = "titulo">Elige los ingredientes del listado y crea tu hamburguesa!</h1>
       </div>
       <div class="listadoIngredientes" id= "ingredientes">
         <h1 class = "tituloListado">Listado de ingredientes</h1>
