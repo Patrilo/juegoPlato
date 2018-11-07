@@ -1,9 +1,9 @@
 
 function Ingredient (juego, ing) {
   this.juego=juego;
-  this.ing = ing;
+  this.name  = ing;
   this.img = new Image();
-  this.img.src = getimage(this.ing);
+  this.img.src = getimage(this.name);
   this.x = Math.floor(Math.random() * this.juego.width);
   this.y = 10;
   this.w = 180;

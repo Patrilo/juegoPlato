@@ -26,6 +26,9 @@ Juego.prototype.start = function() {
 Juego.prototype.reset = function() {
   this.background = new Background(this);
   this.plato = new Plato(this);
+  this.hamburguesa = new Hamburguesa(this)
+  this.hamburguesa.addIng();
+  this.printImgDOM();
     this.contador = 0;
 
 };
@@ -41,18 +44,21 @@ Juego.prototype.draw = function() {
 
 Juego.prototype.isCollision = function() {
   return this.ingredienteArr.some(
-    function(ing) {
+    function(ingreObj) {
       if (
-        ing.w + ing.x >= this.plato.x &&
-        ing.x <= this.plato.x + this.plato.width &&
-        ing.y + ing.h >= this.plato.y &&
-        ing.y <= this.plato.y + this.plato.height
+        ingreObj.w + ingreObj.x >= this.plato.x &&
+        ingreObj.x <= this.plato.x + this.plato.width &&
+        ingreObj.y + ingreObj.h >= this.plato.y &&
+        ingreObj.y <= this.plato.y + this.plato.height
       ) {
-        console.log(this.ingredienteArr.indexOf(ing))
-        this.ingredienteArr.splice(this.ingredienteArr.indexOf(ing),1)
+        this.ingredienteArr.splice(this.ingredienteArr.indexOf(ingreObj),1)
 
-        console.log("isCollision")
-        //ing.y = -20;
+       
+        if(this.hamburguesa.miHamburguesa.includes(ingreObj.name)){
+        var collisioned = document.getElementsByClassName(ingreObj.name)
+        console.log(collisioned)
+        collisioned[0].style.display='none'
+        }
 
 
 
@@ -66,3 +72,18 @@ Juego.prototype.generarIngredientes = function() {
   var randomIng = ingredientes[Math.floor(Math.random() * ingredientes.length)];
   this.ingredienteArr.push(new Ingredient(this, randomIng));
 };
+
+
+Juego.prototype.printImgDOM = function () {
+
+this.hamburguesa.miHamburguesa.forEach(ingrediente=> {
+  var imagen = document.createElement('img');
+  imagen.src= getimage(ingrediente);
+  imagen.className = ingrediente
+
+  var myDiv = document.getElementById("ingredientes")
+  
+  myDiv.appendChild(imagen)
+});
+
+}
