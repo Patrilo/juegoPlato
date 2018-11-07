@@ -3,7 +3,7 @@ function Plato(juego) {
   this.img = new Image();
   this.img.src = "./images/madera.png";
   this.x = 450;
-  this.y = 0;
+  this.y = 80;
   this.width = 272;
   this.height = 70;
   

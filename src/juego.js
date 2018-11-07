@@ -27,6 +27,7 @@ Juego.prototype.reset = function() {
   this.background = new Background(this);
   this.plato = new Plato(this);
     this.contador = 0;
+
 };
 
 Juego.prototype.draw = function() {
@@ -42,11 +43,14 @@ Juego.prototype.isCollision = function() {
   return this.ingredienteArr.some(
     function(ing) {
       if (
-        this.plato.x + this.plato.w >= ing.x &&
-        this.plato.x < ing.x + ing.w &&
-        this.plato.y + (this.plato.h) >= ing.y &&
-        ing.y + ing.h >= this.plato.y
+        ing.w + ing.x >= this.plato.x &&
+        ing.x <= this.plato.x + this.plato.width &&
+        ing.y + ing.h >= this.plato.y &&
+        ing.y <= this.plato.y + this.plato.height
       ) {
+        console.log(this.ingredienteArr.indexOf(ing))
+        this.ingredienteArr.splice(this.ingredienteArr.indexOf(ing),1)
+
         console.log("isCollision")
         //ing.y = -20;
 
