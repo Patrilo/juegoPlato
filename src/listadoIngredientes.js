@@ -10,13 +10,12 @@ var ingredientes = [
   "tomate",
   "panHamburguesa",
   "queso",
-  "arosCebolla",
   "barbacoa",
   "huevo",
   "mahonesa",
   "mostaza",
   "pepino",
-  
+    
 ];
 
 function getimage(ingredient) {

@@ -5,6 +5,8 @@ function Juego(myCanvas) {
   this.fps = 60;
   this.ingredienteArr = [];
   this.reset();
+  this.ingAcertados = 0;
+  this.tries = 2;
 }
 
 Juego.prototype.start = function() {
@@ -12,7 +14,8 @@ Juego.prototype.start = function() {
     function() {
       this.draw();
       this.plato.movePlato();
-      if(this.isCollision()){}
+      if (this.isCollision()) {
+      }
       if (this.contador == 120) {
         this.generarIngredientes();
         this.contador = 0;
@@ -26,11 +29,10 @@ Juego.prototype.start = function() {
 Juego.prototype.reset = function() {
   this.background = new Background(this);
   this.plato = new Plato(this);
-  this.hamburguesa = new Hamburguesa(this)
+  this.hamburguesa = new Hamburguesa(this);
   this.hamburguesa.addIng();
   this.printImgDOM();
-    this.contador = 0;
-
+  this.contador = 0;
 };
 
 Juego.prototype.draw = function() {
@@ -51,17 +53,34 @@ Juego.prototype.isCollision = function() {
         ingreObj.y + ingreObj.h >= this.plato.y &&
         ingreObj.y <= this.plato.y + this.plato.height
       ) {
-        this.ingredienteArr.splice(this.ingredienteArr.indexOf(ingreObj),1)
+        this.ingredienteArr.splice(this.ingredienteArr.indexOf(ingreObj), 1);
 
-       
-        if(this.hamburguesa.miHamburguesa.includes(ingreObj.name)){
-        var collisioned = document.getElementsByClassName(ingreObj.name)
-        console.log(collisioned)
-        collisioned[0].style.display='none'
+        if (this.hamburguesa.miHamburguesa.includes(ingreObj.name)) {
+          var collisioned = document.getElementsByClassName(ingreObj.name);
+          this.ingAcertados++;
+          collisioned[0].src = "./images/ticVerde.png";
+          ingredientes.splice(ingredientes.indexOf(ingreObj.name), 1);
+
+          if (this.ingAcertados == this.hamburguesa.miHamburguesa.length) {
+            setTimeout(
+              function() {
+                alert("A comer!");
+              }.bind(this),
+              1000
+            );
+          }
+        } else {
+          this.tries--;
+          if(this.tries == 0) {
+            setTimeout (
+              function() {
+                alert("No sabes cocinar");
+              }.bind(this),
+              1000
+            )
+          }
+          
         }
-
-
-
         return true;
       }
     }.bind(this)
@@ -73,17 +92,14 @@ Juego.prototype.generarIngredientes = function() {
   this.ingredienteArr.push(new Ingredient(this, randomIng));
 };
 
+Juego.prototype.printImgDOM = function() {
+  this.hamburguesa.miHamburguesa.forEach(ingrediente => {
+    var imagen = document.createElement("img");
+    imagen.src = getimage(ingrediente);
+    imagen.className = ingrediente;
 
-Juego.prototype.printImgDOM = function () {
+    var myDiv = document.getElementById("ingredientes");
 
-this.hamburguesa.miHamburguesa.forEach(ingrediente=> {
-  var imagen = document.createElement('img');
-  imagen.src= getimage(ingrediente);
-  imagen.className = ingrediente
-
-  var myDiv = document.getElementById("ingredientes")
-  
-  myDiv.appendChild(imagen)
-});
-
-}
+    myDiv.appendChild(imagen);
+  });
+};
