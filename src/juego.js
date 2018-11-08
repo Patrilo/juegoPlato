@@ -7,6 +7,7 @@ function Juego(myCanvas) {
   this.reset();
   this.ingAcertados = 0;
   this.tries = 2;
+  this.counter = 0;
 }
 
 Juego.prototype.start = function() {
@@ -64,7 +65,13 @@ Juego.prototype.isCollision = function() {
           if (this.ingAcertados == this.hamburguesa.miHamburguesa.length) {
             setTimeout(
               function() {
-                alert("A comer!");
+                swal({
+                  title: "A comer!",
+                  text: "Buen trabajo!",
+                  icon: "success",
+                  button: "Conseguido!",
+                });
+                //alert("A comer!");
               }.bind(this),
               1000
             );
@@ -74,7 +81,13 @@ Juego.prototype.isCollision = function() {
           if(this.tries == 0) {
             setTimeout (
               function() {
-                alert("No sabes cocinar");
+                //alert("No sabes cocinar");
+                swal({
+                  title: "Mal...",
+                  text: "Vuelve a intentarlo",
+                  icon: "error",
+                  button: "Jugar otra vez",
+                });
               }.bind(this),
               1000
             )
@@ -103,3 +116,19 @@ Juego.prototype.printImgDOM = function() {
     myDiv.appendChild(imagen);
   });
 };
+
+
+Juego.prototype.counterScore = function (contador) {
+
+// ganar puntos con carne y pan
+
+  if (contador == getimage.carne && this.contador == getimage.pan){
+    this.contador++
+  }
+  // ganar puntos con los 4 ingredientes restantes
+  if (contador ==)
+  this.contador +=2
+}
+  // si coge otro ingrediente, pierdes
+if (contador )
+ this.contador -=2

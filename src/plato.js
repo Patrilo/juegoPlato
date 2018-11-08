@@ -21,10 +21,10 @@ var RIGHT_KEY = 39;
 Plato.prototype.setListeners = function() {
   document.onkeydown = function(event) {
     if (event.keyCode === LEFT_KEY) {
-      this.x -= 10;
+      this.x -= 30;
     }       
     else if (event.keyCode === RIGHT_KEY) {
-      this.x += 10;
+      this.x += 30;
     }
   }.bind(this);
   
