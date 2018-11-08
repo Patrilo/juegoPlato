@@ -105,7 +105,7 @@ Juego.prototype.isCollision = function() {
                   title: "Game over",
                   text: "Vuelve a intentarlo",
                   icon: "error",
-                  //button: "Jugar otra vez" 
+                  button: "Jugar otra vez" 
                 });
               }.bind(this),
               1500
