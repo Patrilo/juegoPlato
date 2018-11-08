@@ -6,8 +6,6 @@ function Plato(juego) {
   this.y = 80;
   this.width = 272;
   this.height = 70;
-  
-
   this.setListeners();
 }
 

@@ -8,6 +8,8 @@ function Juego(myCanvas) {
   this.ingAcertados = 0;
   this.tries = 2;
   this.counter = 0;
+  this.correctIngre = []
+  this.actualY=10
 }
 
 Juego.prototype.start = function() {
@@ -16,6 +18,12 @@ Juego.prototype.start = function() {
       this.draw();
       this.plato.movePlato();
       if (this.isCollision()) {
+      }
+      if(this.correctIngre.length !== 0){
+        this.correctIngre.forEach(function(ele){
+          ele.x = (this.plato.x+25)
+          ele.draw()
+        }.bind(this))
       }
       if (this.contador == 120) {
         this.generarIngredientes();
@@ -69,10 +77,18 @@ Juego.prototype.isCollision = function() {
           //   collisionTick: "./images/ticVerde.png"
           // }
           collisioned[0].src = "./images/ticVerde.png";
+
           ingredientes.splice(ingredientes.indexOf(ingreObj.name), 1);
+          this.correctIngreItem = new CreateImageHam(this,ingreObj.name, this.plato)
+          this.correctIngre.push(this.correctIngreItem)
+          this.actualY+=10
+          this.correctIngreItem.y-=this.actualY
+          
 
           if (ingreObj.name == "panHamburguesa" || ingreObj.name == "carne") {
             this.counter++;
+         
+            
           } else {
             this.counter += 2;
           }
@@ -105,7 +121,7 @@ Juego.prototype.isCollision = function() {
                   title: "Game over",
                   text: "Vuelve a intentarlo",
                   icon: "error",
-                  button: "Jugar otra vez" 
+                  button: "Ok" 
                 });
               }.bind(this),
               1500
@@ -142,5 +158,4 @@ Juego.prototype.printImgDOM = function() {
 //todo: consider adding a ScoreManager class
 Juego.prototype.puntuacion = function () {
   document.getElementById("puntuacion").innerHTML = this.counter;
-  console.log(this.puntuacion)
 }
