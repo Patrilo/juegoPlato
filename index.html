@@ -1,52 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" type="text/css" href="css/reset.css" />
+    <link rel="stylesheet" type="text/css" href="css/styles.css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Amatic+SC|Life+Savers"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Anton"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Anton|EB+Garamond"
+      rel="stylesheet"
+    />
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <link
+      href="https://fonts.googleapis.com/css?family=Permanent+Marker"
+      rel="stylesheet"
+    />
+  
+    <title>Plato Platito</title>
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" type="text/css" href="css/reset.css">
-  <link rel="stylesheet" type="text/css" href="css/styles.css">
-  <link href="https://fonts.googleapis.com/css?family=Amatic+SC|Life+Savers" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Anton" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Anton|EB+Garamond" rel="stylesheet">
-  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-  <script type="text/javascript" src="src/juego.js"></script>
-  <script type="text/javascript" src="src/main.js"></script>
-  <script type="text/javascript" src="src/ingredientes.js"></script>
-  <script type="text/javascript" src="src/finalPlato.js"></script>
-  <script type="text/javascript" src="src/listadoIngredientes.js"></script>
-  <script type="text/javascript" src="src/plato.js"></script>
-  <script type="text/javascript" src="src/background.js"></script>
-
-  <title>Plato Platito</title>
-</head>
-
-<body>
-  <div class="juego">
-    <canvas id="myCanvas" width="1200" heigth="500"></canvas>
-    <div class="listado">
-      <div class="score">
-        <h1>Score</h1>
-      </div>
-      <div class="vidas">
-        <h1 class = "instrucciones">Instrucciones</h1>
-        <div class = "textoImagen">
-        <img src="images/arrows.png" height="100px" width= "150px" class = "teclas">
-        <p class = "textoCursores">Utiliza los cursores para mover el plato y 
-          elegir los ingredientes para crear tu hamburguesa!</p>
-        </div>
-      </div>
-      <div class="nombre-plato">
-        <h1 class = "titulo">Elige los ingredientes del listado y crea tu hamburguesa!</h1>
-      </div>
-      <div class="listadoIngredientes" id= "ingredientes">
-        <h1 class = "tituloListado">Listado de ingredientes</h1>
+  <body>
+    <div class="cajita">
+      <div class="cajaBoton">
+        <button class="boton">¿Tienes hambre? </button>
       </div>
     </div>
-  </div>
+     
+    <div class="juego" id = "mostrarJuego">
+      <canvas id="myCanvas" width="1200" heigth="500"></canvas>
+      <div class="listado">
+        <div id="score"><h1>Score</h1>
+          <p id = "puntuacion">0</p>
+        </div>
 
+        <div class="vidas">
+          <h1 class="instrucciones">Instrucciones</h1>
+          <div class="textoImagen">
+            <img
+              src="images/arrows.png"
+              height="100px"
+              width="150px"
+              class="teclas"
+            />
+            <p class="textoCursores">
+              Utiliza los cursores para mover el plato y elegir los ingredientes
+              para crear tu hamburguesa!
+            </p>
+          </div>
+        </div>
+        <div class="nombre-plato">
+          <h1 class="titulo">
+            Elige los ingredientes del listado y crea tu hamburguesa!
+          </h1>
+        </div>
+        <div class="listadoIngredientes" id="ingredientes">
+          <h1 class="tituloListado">Listado de ingredientes</h1>
+        </div>
+      </div>
+    </div>
   
-</body>
+    <script type="text/javascript" src="src/events.js"></script>
+    <script type="text/javascript" src="src/juego.js"></script>
+    <script type="text/javascript" src="src/main.js"></script>
+    <script type="text/javascript" src="src/ingredientes.js"></script>
+    <script type="text/javascript" src="src/finalPlato.js"></script>
+    <script type="text/javascript" src="src/listadoIngredientes.js"></script>
+    <script type="text/javascript" src="src/plato.js"></script>
+    <script type="text/javascript" src="src/background.js"></script>
 
+
+  </body>
 </html>

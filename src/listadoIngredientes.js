@@ -1,3 +1,4 @@
+//todo: refactor this as it belongs to the window object and it should not
 var ingredientes = [
   "bacon",
   "carne",

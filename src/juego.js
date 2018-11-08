@@ -45,13 +45,17 @@ Juego.prototype.draw = function() {
   }
 };
 
+
+//todo: consider moving this into a CollisionManager class
+//CollisionManager.check(plato, x,y)
 Juego.prototype.isCollision = function() {
+  
   return this.ingredienteArr.some(
     function(ingreObj) {
       if (
-        ingreObj.w + ingreObj.x >= this.plato.x &&
+        (ingreObj.w-20) + (ingreObj.x+10) >= this.plato.x &&
         ingreObj.x <= this.plato.x + this.plato.width &&
-        ingreObj.y + ingreObj.h >= this.plato.y &&
+        ingreObj.y + (ingreObj.h-28) >= this.plato.y &&
         ingreObj.y <= this.plato.y + this.plato.height
       ) {
         this.ingredienteArr.splice(this.ingredienteArr.indexOf(ingreObj), 1);
@@ -59,45 +63,62 @@ Juego.prototype.isCollision = function() {
         if (this.hamburguesa.miHamburguesa.includes(ingreObj.name)) {
           var collisioned = document.getElementsByClassName(ingreObj.name);
           this.ingAcertados++;
+
+          //todo: consider adding a GameConfig object
+          // let GameeConfig = {
+          //   collisionTick: "./images/ticVerde.png"
+          // }
           collisioned[0].src = "./images/ticVerde.png";
           ingredientes.splice(ingredientes.indexOf(ingreObj.name), 1);
 
-          if (this.ingAcertados == this.hamburguesa.miHamburguesa.length) {
-            setTimeout(
-              function() {
-                swal({
-                  title: "A comer!",
-                  text: "Buen trabajo!",
-                  icon: "success",
-                  button: "Conseguido!",
-                });
-                //alert("A comer!");
-              }.bind(this),
-              1000
-            );
+          if (ingreObj.name == "panHamburguesa" || ingreObj.name == "carne") {
+            this.counter++;
+          } else {
+            this.counter += 2;
           }
-        } else {
-          this.tries--;
-          if(this.tries == 0) {
-            setTimeout (
+        }else{
+          this.tries--
+        }
+        this.puntuacion();
+
+        if (this.ingAcertados == this.hamburguesa.miHamburguesa.length) {
+          setTimeout(
+            function() {
+              //todo: consider adding a Modal class wrapper
+              swal({
+                title: "¡A comer!",
+                //text: "Buen trabajo!",
+                icon: "success",
+                button: "Conseguido!"
+              });
+              //alert("A comer!");
+            }.bind(this),
+            1000
+          );
+        } else {  
+          if (this.tries == 0) {
+            clearInterval(this.interval)
+              setTimeout(
               function() {
                 //alert("No sabes cocinar");
                 swal({
-                  title: "Mal...",
+                  title: "Game over",
                   text: "Vuelve a intentarlo",
                   icon: "error",
-                  button: "Jugar otra vez",
+                  //button: "Jugar otra vez" 
                 });
               }.bind(this),
-              1000
-            )
+              1500
+            );
           }
-          
         }
         return true;
-      }
-    }.bind(this)
+      } 
+      
+        }.bind(this)
+        
   );
+  
 };
 
 Juego.prototype.generarIngredientes = function() {
@@ -105,6 +126,7 @@ Juego.prototype.generarIngredientes = function() {
   this.ingredienteArr.push(new Ingredient(this, randomIng));
 };
 
+//todo: consider addng an IngredientsList class to manage this items
 Juego.prototype.printImgDOM = function() {
   this.hamburguesa.miHamburguesa.forEach(ingrediente => {
     var imagen = document.createElement("img");
@@ -117,18 +139,8 @@ Juego.prototype.printImgDOM = function() {
   });
 };
 
-
-Juego.prototype.counterScore = function (contador) {
-
-// ganar puntos con carne y pan
-
-  if (contador == getimage.carne && this.contador == getimage.pan){
-    this.contador++
-  }
-  // ganar puntos con los 4 ingredientes restantes
-  if (contador ==)
-  this.contador +=2
+//todo: consider adding a ScoreManager class
+Juego.prototype.puntuacion = function () {
+  document.getElementById("puntuacion").innerHTML = this.counter;
+  console.log(this.puntuacion)
 }
-  // si coge otro ingrediente, pierdes
-if (contador )
- this.contador -=2
