@@ -17,3 +17,4 @@ Hamburguesa.prototype.addIng = function() {
 
   }
 };
+

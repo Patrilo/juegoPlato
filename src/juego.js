@@ -6,10 +6,10 @@ function Juego(myCanvas) {
   this.ingredienteArr = [];
   this.reset();
   this.ingAcertados = 0;
-  this.tries = 2;
+  this.tries = 1;
   this.counter = 0;
-  this.correctIngre = []
-  this.actualY=10
+  this.correctIngre = [];
+  this.actualY = 10;
 }
 
 Juego.prototype.start = function() {
@@ -19,11 +19,13 @@ Juego.prototype.start = function() {
       this.plato.movePlato();
       if (this.isCollision()) {
       }
-      if(this.correctIngre.length !== 0){
-        this.correctIngre.forEach(function(ele){
-          ele.x = (this.plato.x+25)
-          ele.draw()
-        }.bind(this))
+      if (this.correctIngre.length !== 0) {
+        this.correctIngre.forEach(
+          function(ele) {
+            ele.x = this.plato.x + 25;
+            ele.draw();
+          }.bind(this)
+        );
       }
       if (this.contador == 120) {
         this.generarIngredientes();
@@ -53,17 +55,15 @@ Juego.prototype.draw = function() {
   }
 };
 
-
 //todo: consider moving this into a CollisionManager class
 //CollisionManager.check(plato, x,y)
 Juego.prototype.isCollision = function() {
-  
   return this.ingredienteArr.some(
     function(ingreObj) {
       if (
-        (ingreObj.w-20) + (ingreObj.x+10) >= this.plato.x &&
+        ingreObj.w - 20 + (ingreObj.x + 10) >= this.plato.x &&
         ingreObj.x <= this.plato.x + this.plato.width &&
-        ingreObj.y + (ingreObj.h-28) >= this.plato.y &&
+        ingreObj.y + (ingreObj.h - 28) >= this.plato.y &&
         ingreObj.y <= this.plato.y + this.plato.height
       ) {
         this.ingredienteArr.splice(this.ingredienteArr.indexOf(ingreObj), 1);
@@ -79,21 +79,22 @@ Juego.prototype.isCollision = function() {
           collisioned[0].src = "./images/ticVerde.png";
 
           ingredientes.splice(ingredientes.indexOf(ingreObj.name), 1);
-          this.correctIngreItem = new CreateImageHam(this,ingreObj.name, this.plato)
-          this.correctIngre.push(this.correctIngreItem)
-          this.actualY+=10
-          this.correctIngreItem.y-=this.actualY
-          
+          this.correctIngreItem = new CreateImageHam(
+            this,
+            ingreObj.name,
+            this.plato
+          );
+          this.correctIngre.push(this.correctIngreItem);
+          this.actualY += 10;
+          this.correctIngreItem.y -= this.actualY;
 
           if (ingreObj.name == "panHamburguesa" || ingreObj.name == "carne") {
             this.counter++;
-         
-            
           } else {
             this.counter += 2;
           }
-        }else{
-          this.tries--
+        } else {
+          this.tries--;
         }
         this.puntuacion();
 
@@ -111,30 +112,30 @@ Juego.prototype.isCollision = function() {
             }.bind(this),
             1000
           );
-        } else {  
+        } else {
           if (this.tries == 0) {
-            clearInterval(this.interval)
-              setTimeout(
-              function() {
-                //alert("No sabes cocinar");
-                swal({
-                  title: "Game over",
-                  text: "Vuelve a intentarlo",
-                  icon: "error",
-                  button: "Ok" 
-                });
-              }.bind(this),
+            clearInterval(this.interval);
+            document.querySelector("#tryAgain").style.display = "block";
+            this.DOMremove();
+
+            setTimeout(
+              //function() {
+              //alert("No sabes cocinar");
+              //swal({
+              //title: "Game over",
+              //text: "Vuelve a intentarlo",
+              //icon: "error",
+              //button: "Ok"
+              //});
+              //}.bind(this),
               1500
             );
           }
         }
         return true;
-      } 
-      
-        }.bind(this)
-        
+      }
+    }.bind(this)
   );
-  
 };
 
 Juego.prototype.generarIngredientes = function() {
@@ -155,7 +156,14 @@ Juego.prototype.printImgDOM = function() {
   });
 };
 
+Juego.prototype.DOMremove = function() {
+  for(var i = 0; i <this.hamburguesa.miHamburguesa.length; i++){
+  var imagen = document.querySelector("#ingredientes > img")
+  imagen.remove()
+  }
+};
+
 //todo: consider adding a ScoreManager class
-Juego.prototype.puntuacion = function () {
+Juego.prototype.puntuacion = function() {
   document.getElementById("puntuacion").innerHTML = this.counter;
-}
+};

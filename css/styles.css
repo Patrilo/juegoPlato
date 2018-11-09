@@ -130,3 +130,19 @@
 .queso{
   width: 80px;
 }
+
+#tryAgain{
+position: absolute;
+top: 400px;
+left: 850px;
+display:none;
+}
+.botonAgain {
+  border-radius: 25px;
+  height: 100px;
+  width: 400px;
+  background-color: white;
+  color: black;
+  font-family: 'Permanent Marker', cursive;
+  font-size: 25px;
+}
