@@ -7,11 +7,11 @@ Para ganar, tienes que conseguir todos los ingredientes. El pan y la carne valen
 Tendrás 3 intentos para lograrlo.
 </p>
 
-##Futuras mejoras:
+## Futuras mejoras:
 - Mejorar la calidad de todas las imagenes
 - Crear niveles en los que dependa la velocidad de los ingredientes y del plato
 
-##Parte del código que más me ha costado:
+## Parte del código que más me ha costado:
 La parte de las colisiones y la actualización del menú
 
 ``` js
