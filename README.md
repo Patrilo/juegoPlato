@@ -1,6 +1,3 @@
-# juegoPlato
-
-
 <h1>Teo ¿Tienes hambre?</h1
 
 <p>Es un juego divertido que consiste en coger todos los ingredientes para preparar una rica hamburguesa. Para ello, tienes que mover el plato y elegir aquellos que vienen en el menú que aparece en la parte derecha.
