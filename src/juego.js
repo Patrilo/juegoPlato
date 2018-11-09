@@ -6,7 +6,7 @@ function Juego(myCanvas) {
   this.ingredienteArr = [];
   this.reset();
   this.ingAcertados = 0;
-  this.tries = 1;
+  this.tries = 3;
   this.counter = 0;
   this.correctIngre = [];
   this.actualY = 10;
@@ -55,8 +55,7 @@ Juego.prototype.draw = function() {
   }
 };
 
-//todo: consider moving this into a CollisionManager class
-//CollisionManager.check(plato, x,y)
+
 Juego.prototype.isCollision = function() {
   return this.ingredienteArr.some(
     function(ingreObj) {
@@ -72,10 +71,7 @@ Juego.prototype.isCollision = function() {
           var collisioned = document.getElementsByClassName(ingreObj.name);
           this.ingAcertados++;
 
-          //todo: consider adding a GameConfig object
-          // let GameeConfig = {
-          //   collisionTick: "./images/ticVerde.png"
-          // }
+         
           collisioned[0].src = "./images/ticVerde.png";
 
           ingredientes.splice(ingredientes.indexOf(ingreObj.name), 1);
@@ -101,33 +97,23 @@ Juego.prototype.isCollision = function() {
         if (this.ingAcertados == this.hamburguesa.miHamburguesa.length) {
           setTimeout(
             function() {
-              //todo: consider adding a Modal class wrapper
+              mcDonald.play()
               swal({
                 title: "¡A comer!",
-                //text: "Buen trabajo!",
                 icon: "success",
                 button: "Conseguido!"
               });
-              //alert("A comer!");
-            }.bind(this),
-            1000
+             }.bind(this),
+            700
           );
         } else {
           if (this.tries == 0) {
             clearInterval(this.interval);
             document.querySelector("#tryAgain").style.display = "block";
             this.DOMremove();
-
+            platosRotos.play()
             setTimeout(
-              //function() {
-              //alert("No sabes cocinar");
-              //swal({
-              //title: "Game over",
-              //text: "Vuelve a intentarlo",
-              //icon: "error",
-              //button: "Ok"
-              //});
-              //}.bind(this),
+              
               1500
             );
           }
@@ -143,7 +129,7 @@ Juego.prototype.generarIngredientes = function() {
   this.ingredienteArr.push(new Ingredient(this, randomIng));
 };
 
-//todo: consider addng an IngredientsList class to manage this items
+
 Juego.prototype.printImgDOM = function() {
   this.hamburguesa.miHamburguesa.forEach(ingrediente => {
     var imagen = document.createElement("img");
@@ -163,7 +149,7 @@ Juego.prototype.DOMremove = function() {
   }
 };
 
-//todo: consider adding a ScoreManager class
+
 Juego.prototype.puntuacion = function() {
   document.getElementById("puntuacion").innerHTML = this.counter;
 };

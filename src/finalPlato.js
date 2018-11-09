@@ -3,7 +3,7 @@ function Hamburguesa(juego) {
   this.miHamburguesa = ["panHamburguesa", "carne"];
 }
 
-//todo: use the GameConfig object here to remove the hardcoded values
+
 Hamburguesa.prototype.addIng = function() {
   for (var i = 0; i < 4; i++) {
     var randomIng =

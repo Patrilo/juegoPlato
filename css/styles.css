@@ -141,8 +141,10 @@ display:none;
   border-radius: 25px;
   height: 100px;
   width: 400px;
-  background-color: white;
-  color: black;
-  font-family: 'Permanent Marker', cursive;
-  font-size: 25px;
+  background-color: #ff3300;
+  color: white;
+  font-family: 'Life Savers', cursive;
+  font-size: 42px;
+  border: solid white;
+
 }

@@ -11,7 +11,7 @@ function CreateImageHam(juego, nameImg, plato) {
 }
 
 CreateImageHam.prototype.draw = function() {
-  console.log(this.img.src);
+  
   this.juego.ctx.drawImage(this.img, this.x, this.y, this.w, this.h);
 };
 

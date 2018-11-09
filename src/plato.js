@@ -13,10 +13,7 @@ Plato.prototype.draw = function() {
   this.juego.ctx.drawImage(this.img, this.x, 80, this.width, this.height);
 };
 
-//todo: consider using a KeyboardKeysConfig object which includes all the keys in your game
-// let KeyboardKeysConfig = {
-//   left: 37
-// }
+
 var LEFT_KEY = 37;
 var RIGHT_KEY = 39;
 
