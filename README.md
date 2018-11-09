@@ -34,63 +34,17 @@ Juego.prototype.isCollision = function() {
 
           collisioned[0].src = "./images/ticVerde.png";
 
-          ingredientes.splice(ingredientes.indexOf(ingreObj.name), 1);
-          this.correctIngreItem = new CreateImageHam(
-            this,
-            ingreObj.name,
-            this.plato
+         
           );
 
   ```
-
-  ##Parte de la que estoy más orgullosa
-
-``` js
-function Hamburguesa(juego) {
-  this.juego = juego;
-  this.miHamburguesa = ["panHamburguesa", "carne"];
-}
-
-//todo: use the GameConfig object here to remove the hardcoded values
-Hamburguesa.prototype.addIng = function() {
-  for (var i = 0; i < 4; i++) {
-    var randomIng =
-      ingredientes[Math.floor(Math.random() * ingredientes.length)];
-
-    if (!this.miHamburguesa.includes(randomIng)) {
-      this.miHamburguesa.push(randomIng);
-    }else{
-      i--
-    }
-
-  }
-};
-
-```
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
 ## Si volvieras al primer día, ¿Qué harías?
 
-Dedicaria mas tiempo al diseño y a la estetica.
+Dedicaria mas tiempo al diseño y a la estetica. Además, me pararia más tiempo a pensar la organización del propio código y de los archivos.
 
-parte del codigo de la que estemos orgullosos
-parte del codigo que mas ha costado
 
 
 
